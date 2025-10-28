@@ -26,13 +26,13 @@ const Banner = () => {
         <div>
           <Titulo>{game.name}</Titulo>
           <Precos>
-            De <span>{formataPreco(game?.prices.old)}</span> <br />
-            por apenas {formataPreco(game?.prices.current)}
+            De <span>{formataPreco(game.prices.old)}</span> <br />
+            por apenas {formataPreco(game.prices.current)}
           </Precos>
         </div>
         <Button
           type="link"
-          to="/produto"
+          to={`/product/${game.id}`}
           title="clique aqui para aproveitar esta oferta"
         >
           Aproveitar
