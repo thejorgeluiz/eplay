@@ -7,13 +7,12 @@ import { useEffect, useState } from 'react'
 import { Game } from '../../../pages/Home'
 import { formataPreco } from '../../ProductsList'
 
+import { useGetFeaturedGameQuery } from '../../../services/api'
+
 const Banner = () => {
-  const [game, setGame] = useState<Game>()
-  useEffect(() => {
-    fetch('https://api-ebac.vercel.app/api/eplay/destaque')
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [])
+  const { data: game, isLoading } = useGetFeaturedGameQuery()
+
+  //const [game, setGame] = useState<Game>()
 
   if (!game) {
     return <h3>carregando...</h3>
