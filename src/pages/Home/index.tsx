@@ -1,13 +1,5 @@
-import { useEffect, useState } from 'react'
-
 import Banner from '../../components/Header/Banner'
 import ProductsList from '../../components/ProductsList'
-
-import resident from '../../../src/assets/images/resident.png'
-import diablo from '../../../src/assets/images/diablo.png'
-import zelda from '../../../src/assets/images/zelda.png'
-import starWars from '../../../src/assets/images/star_wars.png'
-import { StringSupportOption } from 'prettier'
 
 import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
