@@ -23,7 +23,7 @@ export type Game = {
     system: string
     developer: string
     publisher: string
-    languages: String[]
+    languages: string[]
   }
   media: {
     thumbnail: string
@@ -33,30 +33,29 @@ export type Game = {
 }
 
 const Home = () => {
-  const { data: onSaleGames } = useGetOnSaleQuery()
-  const { data: soonGames } = useGetSoonQuery()
+  const { data: onSaleGames, isLoading: isLoadingSale } = useGetOnSaleQuery()
+  const { data: soonGames, isLoading: isLoadingSoon } = useGetSoonQuery()
 
-  if (onSaleGames && soonGames) {
-    return (
-      <>
-        <Banner />
-        <ProductsList
-          games={onSaleGames}
-          title="Promoções"
-          background="gray"
-          id="on-sale"
-        />
+  return (
+    <>
+      <Banner />
+      <ProductsList
+        games={onSaleGames}
+        title="Promoções"
+        background="gray"
+        id="on-sale"
+        isLoading={isLoadingSale}
+      />
 
-        <ProductsList
-          games={soonGames}
-          title="Em Breve"
-          background="black"
-          id="coming-soon"
-        />
-      </>
-    )
-  }
-  return <h4>carregando</h4>
+      <ProductsList
+        games={soonGames}
+        title="Em Breve"
+        background="black"
+        id="coming-soon"
+        isLoading={isLoadingSoon}
+      />
+    </>
+  )
 }
 
 export default Home
