@@ -1,5 +1,3 @@
-import { title } from 'process'
-import { Game } from '../../pages/Home'
 import Product from '../Products'
 
 import * as S from './styles'
